@@ -7,6 +7,7 @@ import { SkillsOrbit } from "./components/SkillsOrbit";
 import { StatsCard } from "./components/StatsCard";
 import { Timeline } from "./components/Timeline";
 import { ProjectsSection } from "./components/Projects";
+import { SplashCursor } from "./components/Cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -243,7 +244,7 @@ export default function App() {
       <div className="fixed inset-0 cyber-grid -z-20 pointer-events-none" />
 
       {/* Custom Cursor Ring */}
-      <div
+      {/* <div
         className="custom-cursor hidden md:block"
         style={{
           left: `${cursorPos.x}px`,
@@ -254,7 +255,8 @@ export default function App() {
             ? "rgba(37, 99, 235, 0.05)"
             : "transparent",
         }}
-      />
+      /> */}
+      <SplashCursor />
 
       {/* --- Premium Navigation Header --- */}
       <header className="fixed top-4 inset-x-4 h-16 z-50 glass-panel flex items-center justify-between px-6 md:px-10 border border-white/40 shadow-sm max-w-7xl mx-auto rounded-2xl">
