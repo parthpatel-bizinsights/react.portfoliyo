@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,23 +12,26 @@ interface TimelineItem {
 }
 
 const TIMELINE_DATA: TimelineItem[] = [
+  // {
+  //   year: "2024 - Present",
+  //   role: "Lead Full Stack Architect",
+  //   company: "NextGen Solutions",
+  //   description:
+  //     "Leading a core team developing modern high-performance cloud platforms. Architecting scalable React apps, microservices, and implementing immersive 3D/WebGL experiences.",
+  // },
   {
-    year: '2024 - Present',
-    role: 'Lead Full Stack Architect',
-    company: 'NextGen Solutions',
-    description: 'Leading a core team developing modern high-performance cloud platforms. Architecting scalable React apps, microservices, and implementing immersive 3D/WebGL experiences.',
+    year: "September 2025 - Present",
+    role: "Full Stack Developer",
+    company: "Biz-Insights",
+    description:
+      "Developed premium interactive user interfaces with advanced GSAP animations and Tailwind styling. Boosted core web performance by 40% and launched 15+ responsive platforms.",
   },
   {
-    year: '2022 - 2024',
-    role: 'Senior React Developer',
-    company: 'PixelForge Studios',
-    description: 'Developed premium interactive user interfaces with advanced GSAP animations and Tailwind styling. Boosted core web performance by 40% and launched 25+ responsive platforms.',
-  },
-  {
-    year: '2021 - 2022',
-    role: 'Full Stack Engineer',
-    company: 'WebCraft Agency',
-    description: 'Designed database schemas with MongoDB and built robust REST APIs in Node.js/Express. Created clean UI dashboards and deployed client admin dashboards.',
+    year: "June 2025 - September 2025",
+    role: "Intern Full Stack Developer",
+    company: "Biz-Insights",
+    description:
+      "Designed database schemas with MySQL and built robust REST APIs in Node.js/Express. Created clean UI dashboards and deployed client admin dashboards.",
   },
 ];
 
@@ -42,7 +45,7 @@ export const Timeline: React.FC = () => {
 
     // Get total length of path
     const pathLength = path.getTotalLength();
-    
+
     // Set initial dash attributes to hide the path
     gsap.set(path, {
       strokeDasharray: pathLength,
@@ -53,11 +56,11 @@ export const Timeline: React.FC = () => {
       // 1. Draw SVG path as user scrolls through the timeline container
       gsap.to(path, {
         strokeDashoffset: 0,
-        ease: 'none',
+        ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 70%',
-          end: 'bottom 75%',
+          start: "top 70%",
+          end: "bottom 75%",
           scrub: true,
         },
       });
@@ -75,13 +78,13 @@ export const Timeline: React.FC = () => {
             x: 0,
             scale: 1,
             duration: 1.2,
-            ease: 'back.out(1.2)',
+            ease: "back.out(1.2)",
             scrollTrigger: {
               trigger: cardClass,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              start: "top 85%",
+              toggleActions: "play none none reverse",
             },
-          }
+          },
         );
 
         gsap.fromTo(
@@ -91,13 +94,13 @@ export const Timeline: React.FC = () => {
             scale: 1,
             opacity: 1,
             duration: 0.6,
-            ease: 'elastic.out(1.2, 0.5)',
+            ease: "elastic.out(1.2, 0.5)",
             scrollTrigger: {
               trigger: nodeClass,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              start: "top 85%",
+              toggleActions: "play none none reverse",
             },
-          }
+          },
         );
       });
     }, containerRef);
@@ -106,15 +109,18 @@ export const Timeline: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-4xl mx-auto py-12 px-4">
+    <div
+      ref={containerRef}
+      className="relative w-full max-w-4xl mx-auto py-12 px-4"
+    >
       {/* 3D-effect dynamic connecting vertical path */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[4px]">
+      <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1">
         {/* Underlay tracking track */}
         <div className="w-full h-full bg-slate-200/50 rounded-full" />
-        
+
         {/* Dynamic active SVG path overlay */}
         <svg
-          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[8px] overflow-visible pointer-events-none"
+          className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-2 overflow-visible pointer-events-none"
           preserveAspectRatio="none"
         >
           <path
@@ -125,10 +131,16 @@ export const Timeline: React.FC = () => {
             fill="none"
             strokeLinecap="round"
             className="timeline-path"
-            style={{ filter: 'drop-shadow(0 0 4px rgba(37,99,235,0.35))' }}
+            style={{ filter: "drop-shadow(0 0 4px rgba(37,99,235,0.35))" }}
           />
           <defs>
-            <linearGradient id="timeline-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="timeline-grad"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="#2563eb" />
               <stop offset="50%" stopColor="#0ea5e9" />
               <stop offset="100%" stopColor="#4f46e5" />
@@ -146,17 +158,17 @@ export const Timeline: React.FC = () => {
             <div
               key={idx}
               className={`flex flex-col md:flex-row items-center w-full relative ${
-                isLeft ? 'md:justify-start' : 'md:justify-end'
+                isLeft ? "md:justify-start" : "md:justify-end"
               }`}
             >
               {/* Connecting glowing dot node */}
               <div
                 className={`timeline-node-${idx} absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-4 border-slate-50 flex items-center justify-center shadow-md z-10 transition-colors duration-300 ${
-                  idx === 0 
-                    ? 'bg-blue-600 shadow-blue-500/50 shadow-lg' 
-                    : idx === 1 
-                    ? 'bg-sky-500 shadow-sky-400/50 shadow-lg' 
-                    : 'bg-indigo-600 shadow-indigo-500/50 shadow-lg'
+                  idx === 0
+                    ? "bg-blue-600 shadow-blue-500/50 shadow-lg"
+                    : idx === 1
+                      ? "bg-sky-500 shadow-sky-400/50 shadow-lg"
+                      : "bg-indigo-600 shadow-indigo-500/50 shadow-lg"
                 }`}
               >
                 {/* Node center ping pulse */}
@@ -166,13 +178,15 @@ export const Timeline: React.FC = () => {
               {/* Career details content card */}
               <div
                 className={`timeline-card-${idx} w-full md:w-[45%] glass-panel p-6 shadow-sm relative group hover:border-blue-300/40 duration-300 ${
-                  isLeft ? 'md:mr-auto' : 'md:ml-auto'
+                  isLeft ? "md:mr-auto" : "md:ml-auto"
                 }`}
               >
                 {/* Visual arrow pointer (CSS indicator) */}
                 <div
-                  className={`hidden md:block absolute top-[26px] w-3 h-3 bg-white/70 border-t border-l border-white/20 backdrop-blur-xl rotate-[135deg] z-0 ${
-                    isLeft ? '-right-[7px] border-r border-b border-t-0 border-l-0' : '-left-[7px]'
+                  className={`hidden md:block absolute top-6.5 w-3 h-3 bg-white/70 border-t border-l border-white/20 backdrop-blur-xl rotate-135 z-0 ${
+                    isLeft
+                      ? "-right-1.75 border-r border-b border-t-0 border-l-0"
+                      : "-left-1.75"
                   }`}
                 />
 

@@ -6,6 +6,7 @@ import { CanvasFramePlayer } from "./components/CanvasFramePlayer";
 import { SkillsOrbit } from "./components/SkillsOrbit";
 import { StatsCard } from "./components/StatsCard";
 import { Timeline } from "./components/Timeline";
+import { ProjectsSection } from "./components/Projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -279,7 +280,7 @@ export default function App() {
             { id: "projects", name: "Projects" },
             { id: "timeline", name: "Timeline" },
             { id: "services", name: "Services" },
-            { id: "testimonials", name: "Feedback" },
+            // { id: "testimonials", name: "Feedback" },
           ].map((sec) => (
             <button
               key={sec.id}
@@ -349,7 +350,7 @@ export default function App() {
           { id: "projects", name: "Projects" },
           { id: "timeline", name: "Timeline" },
           { id: "services", name: "Services" },
-          { id: "testimonials", name: "Feedback" },
+          // { id: "testimonials", name: "Feedback" },
           { id: "contact", name: "Contact" },
         ].map((sec) => (
           <button
@@ -390,10 +391,10 @@ export default function App() {
 
           {/* Left Text details */}
           <div className="w-full lg:w-[55%] flex flex-col items-start gap-6 z-10">
-            <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-full glass-panel border border-white/50 text-xs font-bold text-blue-600 tracking-wider shadow-xxs">
+            {/* <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-full glass-panel border border-white/50 text-xs font-bold text-blue-600 tracking-wider shadow-xxs">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               AVAILABLE FOR NEW ROLES
-            </div>
+            </div> */}
 
             <div className="flex flex-col gap-2">
               <span className="text-lg md:text-xl font-bold text-slate-500 tracking-wide uppercase">
@@ -402,7 +403,7 @@ export default function App() {
               <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-tight">
                 Parth Patel
               </h1>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-  -to-r from-blue-600 via-sky-500 to-indigo-600 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-sky-500 to-indigo-600 leading-tight">
                 Full Stack Developer
               </h2>
             </div>
@@ -493,7 +494,7 @@ export default function App() {
                     LOCATION
                   </span>
                   <span className="text-sm font-bold text-slate-800">
-                    Gujarat, India
+                    Surat, Gujarat, India
                   </span>
                 </div>
                 <div className="w-px h-8 bg-slate-200" />
@@ -511,19 +512,19 @@ export default function App() {
             {/* Right side stats grid cards */}
             <div className="grid grid-cols-2 gap-4">
               <StatsCard
-                targetValue={3}
+                targetValue={11}
                 suffix="+"
-                label="Years Experience"
+                label="Months Experience"
                 icon={<IconCalendar />}
               />
               <StatsCard
-                targetValue={50}
+                targetValue={15}
                 suffix="+"
                 label="Projects Built"
                 icon={<IconFolder />}
               />
               <StatsCard
-                targetValue={20}
+                targetValue={10}
                 suffix="+"
                 label="Happy Clients"
                 icon={<IconUsers />}
@@ -562,7 +563,7 @@ export default function App() {
                   interactive widgets, and state management.
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {["React", "Next.js", "Tailwind", "TS", "Redux", "GSAP"].map(
+                  {["React", "Tailwind", "TypeScript", "Redux", "GSAP"].map(
                     (s) => (
                       <span
                         key={s}
@@ -591,6 +592,7 @@ export default function App() {
                     "PostgreSQL",
                     "Firebase",
                     "REST",
+                    "Redis",
                   ].map((s) => (
                     <span
                       key={s}
@@ -611,7 +613,7 @@ export default function App() {
                   and production continuous integrations.
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {["Git", "Docker", "Vercel", "AWS", "Linux"].map((s) => (
+                  {["Git", "Vercel", "AWS"].map((s) => (
                     <span
                       key={s}
                       className="px-2 py-0.5 bg-slate-100 text-slate-700 text-xxs font-bold rounded-md"
@@ -631,7 +633,7 @@ export default function App() {
         </section>
 
         {/* ================= PROJECTS SHOWCASE ================= */}
-        <section id="projects" className="py-12 flex flex-col gap-12">
+        {/* <section id="projects" className="py-12 flex flex-col gap-12">
           <div className="section-title text-center max-w-xl mx-auto flex flex-col gap-2">
             <span className="text-xs font-bold text-blue-600 tracking-wider uppercase">
               03 / CREATIONS
@@ -643,7 +645,6 @@ export default function App() {
           </div>
 
           <div className="flex flex-col gap-24">
-            {/* Project 1 */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-6 flex flex-col gap-5 items-start">
                 <span className="px-3 py-1 bg-blue-50 border border-blue-100 text-blue-600 text-xxs font-bold tracking-widest rounded-full uppercase shadow-xxs">
@@ -698,12 +699,8 @@ export default function App() {
                   </a>
                 </div>
               </div>
-
-              {/* Layered Parallax Device Preview mockup on right */}
               <div className="lg:col-span-6 flex justify-center items-center h-[320px] relative">
-                {/* Background active glow ring */}
                 <div className="absolute w-[240px] h-[240px] rounded-full bg-blue-600/5 blur-3xl" />
-                {/* Base Device structure */}
                 <div className="w-[85%] h-[200px] glass-panel border border-slate-200/60 p-4 shadow-md rotate-[-4deg] hover:rotate-0 duration-500 relative flex flex-col justify-between group overflow-hidden">
                   <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                     <div className="flex gap-1.5">
@@ -715,7 +712,6 @@ export default function App() {
                       everswap.com/trade
                     </span>
                   </div>
-                  {/* Visual mockup graphics */}
                   <div className="flex gap-2 items-center justify-between my-2">
                     <div className="w-[60%] flex flex-col gap-1.5">
                       <div className="w-full h-3 bg-blue-600/10 rounded-sm" />
@@ -735,10 +731,7 @@ export default function App() {
                 </div>
               </div>
             </div>
-
-            {/* Project 2 */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Device on left for project 2 */}
               <div className="lg:col-span-6 flex justify-center items-center h-[320px] relative order-2 lg:order-1">
                 <div className="absolute w-[240px] h-[240px] rounded-full bg-sky-500/5 blur-3xl" />
                 <div className="w-[85%] h-[200px] glass-panel border border-slate-200/60 p-4 shadow-md rotate-[4deg] hover:rotate-0 duration-500 relative flex flex-col justify-between group overflow-hidden">
@@ -825,7 +818,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Project 3 */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-6 flex flex-col gap-5 items-start">
                 <span className="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-600 text-xxs font-bold tracking-widest rounded-full uppercase shadow-xxs">
@@ -881,7 +873,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Parallax elements on right */}
               <div className="lg:col-span-6 flex justify-center items-center h-[320px] relative">
                 <div className="absolute w-[240px] h-[240px] rounded-full bg-indigo-600/5 blur-3xl" />
                 <div className="w-[85%] h-[200px] glass-panel border border-slate-200/60 p-4 shadow-md rotate-[-3deg] hover:rotate-0 duration-500 relative flex flex-col justify-between group overflow-hidden">
@@ -896,7 +887,6 @@ export default function App() {
                     </span>
                   </div>
                   <div className="flex items-center justify-center my-3 relative h-16 bg-slate-50/50 rounded-lg border border-dashed border-slate-200">
-                    {/* Wireframe interactive cube representation */}
                     <div
                       className="w-8 h-8 border border-indigo-600/60 rotate-45 flex items-center justify-center animate-spin"
                       style={{ animationDuration: "8s" }}
@@ -912,7 +902,8 @@ export default function App() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
+        <ProjectsSection />
 
         {/* ================= EXPERIENCE TIMELINE ================= */}
         <section id="timeline" className="py-12 flex flex-col gap-12">
@@ -968,8 +959,8 @@ export default function App() {
                 glow: "group-hover:bg-blue-600/5",
               },
               {
-                title: "Immersive WebGL & 3D",
-                desc: "Custom browser 3D graphics experiences, complex particle engine calculations, camera motion paths, and shader layouts.",
+                title: "SEO Optimization & Growth",
+                desc: "Advanced SEO strategies to improve website rankings, increase organic traffic, optimize performance, enhance search visibility, and drive higher user engagement across search engines.",
                 color: "group-hover:border-sky-500/40",
                 glow: "group-hover:bg-sky-500/5",
               },
@@ -1002,7 +993,7 @@ export default function App() {
         </section>
 
         {/* ================= TESTIMONIALS SECTION ================= */}
-        <section id="testimonials" className="py-12 flex flex-col gap-12">
+        {/* <section id="testimonials" className="py-12 flex flex-col gap-12">
           <div className="section-title text-center max-w-xl mx-auto flex flex-col gap-2">
             <span className="text-xs font-bold text-blue-600 tracking-wider uppercase">
               06 / VERDICTS
@@ -1013,7 +1004,6 @@ export default function App() {
             <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-2" />
           </div>
 
-          {/* Immersive Depth testimonial cards slider */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
@@ -1036,7 +1026,6 @@ export default function App() {
                 key={idx}
                 className="glass-panel p-6 flex flex-col justify-between gap-6 relative overflow-hidden group hover:-translate-y-1.5 duration-300"
               >
-                {/* Visual quote mark indicator */}
                 <span className="absolute -top-6 -left-2 text-slate-100 font-serif text-[120px] leading-none pointer-events-none select-none">
                   “
                 </span>
@@ -1054,13 +1043,13 @@ export default function App() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* ================= CONTACT SECTION ================= */}
         <section id="contact" className="py-12 flex flex-col gap-12 mb-16">
           <div className="section-title text-center max-w-xl mx-auto flex flex-col gap-2">
             <span className="text-xs font-bold text-blue-600 tracking-wider uppercase">
-              07 / CONNECT
+              06 / CONNECT
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-slate-800 tracking-tight">
               Let's Connect
@@ -1088,7 +1077,7 @@ export default function App() {
               {/* Social connect tags list */}
               <div className="flex flex-col gap-3">
                 <a
-                  href="mailto:parth@developer.io"
+                  href="mailto:patelparth53871@gmail.com"
                   className="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 text-slate-600 hover:text-blue-600 duration-300 border border-transparent hover:border-blue-100/50"
                 >
                   <div className="p-2 bg-slate-100 rounded-lg text-inherit">
@@ -1105,12 +1094,12 @@ export default function App() {
                     </svg>
                   </div>
                   <span className="text-xs font-bold tracking-wide">
-                    parth@developer.io
+                    patelparth53871@gmail.com
                   </span>
                 </a>
 
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/patel-parth-862346260?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 text-slate-600 hover:text-blue-600 duration-300 border border-transparent hover:border-blue-100/50"
@@ -1130,12 +1119,12 @@ export default function App() {
                     </svg>
                   </div>
                   <span className="text-xs font-bold tracking-wide">
-                    linkedin.com/in/parthpatel
+                    linkedin.com/in/patel-parth
                   </span>
                 </a>
 
                 <a
-                  href="https://github.com"
+                  href="https://github.com/PatelParth2506"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 text-slate-600 hover:text-blue-600 duration-300 border border-transparent hover:border-blue-100/50"
@@ -1153,7 +1142,7 @@ export default function App() {
                     </svg>
                   </div>
                   <span className="text-xs font-bold tracking-wide">
-                    github.com/parthpatel
+                    github.com/PatelParth2506
                   </span>
                 </a>
               </div>
