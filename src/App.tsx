@@ -77,8 +77,6 @@ const IconCode = () => (
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
-  const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
-  const [cursorHover, setCursorHover] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Form State
@@ -138,27 +136,27 @@ export default function App() {
     });
 
     // --- Custom Interactive Cursor movement ---
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
-    };
+    // const handleMouseMove = (e: MouseEvent) => {
+    //   setCursorPos({ x: e.clientX, y: e.clientY });
+    // };
 
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (
-        target.tagName === "BUTTON" ||
-        target.tagName === "A" ||
-        target.closest("button") ||
-        target.closest("a") ||
-        target.classList.contains("glass-panel")
-      ) {
-        setCursorHover(true);
-      } else {
-        setCursorHover(false);
-      }
-    };
+    // const handleMouseOver = (e: MouseEvent) => {
+    //   const target = e.target as HTMLElement;
+    //   if (
+    //     target.tagName === "BUTTON" ||
+    //     target.tagName === "A" ||
+    //     target.closest("button") ||
+    //     target.closest("a") ||
+    //     target.classList.contains("glass-panel")
+    //   ) {
+    //     setCursorHover(true);
+    //   } else {
+    //     setCursorHover(false);
+    //   }
+    // };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseover", handleMouseOver);
+    // window.addEventListener("mousemove", handleMouseMove);
+    // window.addEventListener("mouseover", handleMouseOver);
 
     // Fade-in animations for section titles
     sections.forEach((sec) => {
@@ -204,8 +202,8 @@ export default function App() {
 
     return () => {
       lenis.destroy();
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseover", handleMouseOver);
+      // window.removeEventListener("mousemove", handleMouseMove);
+      // window.removeEventListener("mouseover", handleMouseOver);
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
